@@ -1,10 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Statistiques</title>
-</head>
-<body>
-<script src="script.js"></script>   
-</body>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="bg-[#3468B5] w-full h-20 text-white text-2xl text-center">Parking management system</div>
+    <div class="grid-flow-row">
+     <div class="flex flex-col md:flex-row min-h-screen w-full">
+
+       <aside class="w-full md:w-[30%] bg-[#3468B5] p-8 text-white flex flex-col items-center border-t md:border-t-0 md:border-r border-white/10">
+        <div class="w-full max-w-xs">
+          <h2 class="text-2xl font-bold mb-8 text-center md:text-left">Book a Slot</h2>
+          
+          <form class="flex flex-col gap-6">
+            <div class="flex flex-col gap-2">
+              <label for="plateNumber" class="text-sm font-medium">Plate Number:</label>
+              <input type="text" id="plateNumber" placeholder="e.g. 123-ABC"
+                class="w-full bg-white border border-gray-300 text-black p-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-300 transition-all" />
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label for="vehicleType" class="text-sm font-medium">Vehicle Type:</label>
+              <input type="text" id="vehicleType" placeholder="Car, Moto, etc."
+                class="w-full bg-white border border-gray-300 text-black p-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-300 transition-all" />
+            </div>
+
+            <button type="button" class="w-full bg-white text-[#3468B5] font-bold py-4 rounded-xl shadow-lg hover:bg-blue-50 active:scale-95 transition-all cursor-pointer">
+              Book Now
+            </button>
+          </form>
+        </div>
+      </aside>
+
+        <main class="flex-1 p-4 md:w-[70%]">
+            <h3 class="mb-5">Available spots: 15</h3>
+        <div class="flex flex-wrap justify-evenly gap-3">
+            <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center cursor-pointer">
+            <span class="text-white text-xs font-bold">A01</span>
+            </div>
+            <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
+            <span class="text-white text-xs font-bold">A02</span>
+            </div>
+                        <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
+            <span class="text-white text-xs font-bold">A03</span>
+            </div>
+                        <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
+            <span class="text-white text-xs font-bold">A04</span>
+            </div>
+                        <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
+            <span class="text-white text-xs font-bold">A05</span>
+            </div>
+            <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
+            <span class="text-white text-xs font-bold">B01</span>
+            </div>
+            <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
+            <span class="text-white text-xs font-bold">B02</span>
+            </div>
+                        <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
+            <span class="text-white text-xs font-bold">B03</span>
+            </div>
+                        <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
+            <span class="text-white text-xs font-bold">B04</span>
+            </div>
+                        <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
+            <span class="text-white text-xs font-bold">B05</span>
+            </div>
+            <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
+            <span class="text-white text-xs font-bold">C01</span>
+            </div>
+            <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
+            <span class="text-white text-xs font-bold">C02</span>
+            </div>
+                        <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
+            <span class="text-white text-xs font-bold">C03</span>
+            </div>
+                        <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
+            <span class="text-white text-xs font-bold">C04</span>
+            </div>
+                        <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
+            <span class="text-white text-xs font-bold">C05</span>
+            </div>                        
+        </div>
+        </main>
+
+    </div>
+  </body>
+</html>
