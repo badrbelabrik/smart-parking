@@ -40,16 +40,64 @@
       </aside>
 
         <main class="flex-1 p-4 md:w-[70%]">
-            <h3 class="mb-5">Available spots: 15</h3>
+            <h3 id="availablespots" class="mb-5">Available spots: 15</h3>
         <div id="spotsRow" class="flex flex-wrap justify-evenly gap-3">
             <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center cursor-pointer">
             <span class="text-white text-xs font-bold">A01</span>
             </div>
             
         </div>
+        <div class="m-5 overflow-hidden rounded-xl border border-gray-200 shadow-md">
+  <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
+    <thead class="bg-gray-50">
+      <tr>
+        <th scope="col" class="px-6 py-4 font-bold text-gray-900">Slot</th>
+        <th scope="col" class="px-6 py-4 font-bold text-gray-900">Plate Number</th>
+        <th scope="col" class="px-6 py-4 font-bold text-gray-900">Type</th>
+        <th scope="col" class="px-6 py-4 font-bold text-gray-900">Entry Time</th>
+        <th scope="col" class="px-6 py-4 font-bold text-gray-900">Exit Time</th>
+        <th scope="col" class="px-6 py-4 font-bold text-gray-900">Price (MAD)</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100 border-t border-gray-100">
+      <tr class="hover:bg-gray-50 transition-colors">
+        <td class="px-6 py-4 font-medium text-gray-900">A01</td>
+        <td class="px-6 py-4">
+          <span class="rounded-md bg-blue-50 px-2 py-1 font-mono text-blue-700 border border-blue-100">
+            ABC-1234
+          </span>
+        </td>
+        <td class="px-6 py-4">Car</td>
+        <td class="px-6 py-4">22/05 14:30</td>
+        <td class="px-6 py-4 text-gray-400">---</td>
+        <td class="px-6 py-4 font-bold text-green-600">10.00</td>
+      </tr>
+      </tbody>
+  </table>
+</div>
         </main>
+        
 
     </div>
+    <!-- informations modal -->
+<dialog id="infoModal" class="fixed inset-0 m-auto rounded-3xl p-0 backdrop:bg-black/50 backdrop:backdrop-blur-sm shadow-2xl">
+  <div class="bg-white w-80 p-6 flex flex-col gap-4">
+    <div class="flex justify-between items-center border-b pb-2">
+      <h3 class="text-xl font-bold text-gray-800">Spot <span id="modalSpotId"></span></h3>
+      <button onclick="closeModal()" class="text-gray-400 hover:text-red-500 text-2xl">&times;</button>
+    </div>
+
+    <div class="space-y-3 text-sm">
+      <p class="flex justify-between"><strong>Plate:</strong> <span id="modalPlate"></span></p>
+      <p class="flex justify-between"><strong>Type:</strong> <span id="modalType"></span></p>
+      <p class="flex justify-between"><strong>Entry time:</strong> <span id="modalTime" ></span></p>
+    </div>
+
+    <button onclick="releaseSpot()" class="w-full bg-[#3468B5] text-white py-3 rounded-xl font-bold hover:bg-red-600 transition cursor-pointer">
+      Generate ticket
+    </button>
+  </div>
+</dialog>
   <script src="script.js"></script>  
   </body>
 </html>
