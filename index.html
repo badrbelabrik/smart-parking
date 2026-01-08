@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart parking</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
   <body>
@@ -22,12 +23,16 @@
             </div>
 
             <div class="flex flex-col gap-2">
-              <label for="vehicleType" class="text-sm font-medium">Vehicle Type:</label>
-              <input type="text" id="vehicleType" placeholder="Car, Moto, etc."
-                class="w-full bg-white border border-gray-300 text-black p-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-300 transition-all" />
+              <label for="vehiculeType" class="text-sm font-medium">Vehicle Type:</label>
+              <select id="vehiculeType" 
+              class="w-full bg-white border border-gray-300 text-black p-3 rounded-xl outline-none focus:ring-2 focus:ring-blue-300 transition-all appearance-none cursor-pointer">
+              <option value="car">Car</option>
+              <option value="motorcycle">Motorcycle</option>
+              <option value="truck">Truck</option>
+              </select>
             </div>
 
-            <button type="button" class="w-full bg-white text-[#3468B5] font-bold py-4 rounded-xl shadow-lg hover:bg-blue-50 active:scale-95 transition-all cursor-pointer">
+            <button onclick="bookSpot()" class="w-full bg-white text-[#3468B5] font-bold py-4 rounded-xl shadow-lg hover:bg-blue-50 active:scale-95 transition-all cursor-pointer">
               Book Now
             </button>
           </form>
@@ -36,55 +41,15 @@
 
         <main class="flex-1 p-4 md:w-[70%]">
             <h3 class="mb-5">Available spots: 15</h3>
-        <div class="flex flex-wrap justify-evenly gap-3">
+        <div id="spotsRow" class="flex flex-wrap justify-evenly gap-3">
             <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center cursor-pointer">
             <span class="text-white text-xs font-bold">A01</span>
             </div>
-            <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
-            <span class="text-white text-xs font-bold">A02</span>
-            </div>
-                        <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
-            <span class="text-white text-xs font-bold">A03</span>
-            </div>
-                        <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
-            <span class="text-white text-xs font-bold">A04</span>
-            </div>
-                        <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
-            <span class="text-white text-xs font-bold">A05</span>
-            </div>
-            <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
-            <span class="text-white text-xs font-bold">B01</span>
-            </div>
-            <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
-            <span class="text-white text-xs font-bold">B02</span>
-            </div>
-                        <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
-            <span class="text-white text-xs font-bold">B03</span>
-            </div>
-                        <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
-            <span class="text-white text-xs font-bold">B04</span>
-            </div>
-                        <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
-            <span class="text-white text-xs font-bold">B05</span>
-            </div>
-            <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
-            <span class="text-white text-xs font-bold">C01</span>
-            </div>
-            <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
-            <span class="text-white text-xs font-bold">C02</span>
-            </div>
-                        <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
-            <span class="text-white text-xs font-bold">C03</span>
-            </div>
-                        <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
-            <span class="text-white text-xs font-bold">C04</span>
-            </div>
-                        <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center">
-            <span class="text-white text-xs font-bold">C05</span>
-            </div>                        
+            
         </div>
         </main>
 
     </div>
+  <script src="script.js"></script>  
   </body>
 </html>
