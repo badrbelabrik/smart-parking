@@ -48,7 +48,7 @@
             
         </div>
         <div class="m-5 overflow-hidden rounded-xl border border-gray-200 shadow-md">
-  <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
+  <table id="ticketsTable" class="w-full border-collapse bg-white text-left text-sm text-gray-500">
     <thead class="bg-gray-50">
       <tr>
         <th scope="col" class="px-6 py-4 font-bold text-gray-900">Slot</th>
@@ -88,12 +88,15 @@
     </div>
 
     <div class="space-y-3 text-sm">
-      <p class="flex justify-between"><strong>Plate:</strong> <span id="modalPlate"></span></p>
+       <p class="flex justify-between"><strong>Date:</strong> <span id="modalDate"></span></p>
+      <p class="flex justify-between"><strong>Plate number:</strong> <span id="modalPlate"></span></p>
       <p class="flex justify-between"><strong>Type:</strong> <span id="modalType"></span></p>
-      <p class="flex justify-between"><strong>Entry time:</strong> <span id="modalTime" ></span></p>
+      <p class="flex justify-between"><strong>Entry time:</strong> <span id="modalEntryTime" ></span></p>
+      <p class="flex justify-between"><strong>Exit time:</strong> <span id="modalExitTime" ></span></p>
+      <p class="flex justify-between"><strong>Price:</strong> <span id="modalPrice" ></span></p>
     </div>
 
-    <button onclick="releaseSpot()" class="w-full bg-[#3468B5] text-white py-3 rounded-xl font-bold hover:bg-red-600 transition cursor-pointer">
+    <button id="getTicket" class="w-full bg-[#3468B5] text-white py-3 rounded-xl font-bold hover:bg-red-600 transition cursor-pointer">
       Generate ticket
     </button>
   </div>
