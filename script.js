@@ -81,6 +81,7 @@ function setTickets(tickets){
 
 function createSpots(){
   const spots = getSpots() || []
+  const vehicules = getVehicules()
   let spotsCount = 0;
   for(spot of spots){
       if(!spot.occupied){
@@ -93,7 +94,8 @@ function createSpots(){
   for (let i=0; i<spots.length; i++){
             const spotDiv = document.createElement("div")
             spotDiv.id = `${spots[i].number}`
-            spotDiv.className=("flex-none w-[calc(20%-12px)] h-20 bg-[#3468B5] border rounded-3xl flex items-center justify-center cursor-pointer")
+            spotDiv.className=("flex-none w-[calc(20%-12px)] h-20 bg-[#3468B5] border rounded-3xl flex flex-col items-center justify-center cursor-pointer")
+            
             spotDiv.onclick = () => {
               showModal(spots[i]); 
             };
@@ -101,7 +103,12 @@ function createSpots(){
             <span class="text-white text-xs font-bold">${spots[i].number}</span>
             `
             if(spots[i].occupied == true){
+              const vehiculeFound = vehicules.find(item => item.slotNumber == spots[i].number)
               spotDiv.style.backgroundColor = "green"
+                          spotDiv.innerHTML = `
+            <span class="text-white text-xs font-bold">${spots[i].number}</span>
+            <span class="text-white text-xs font-bold">${vehiculeFound.plateNumber}</span>
+            `
             }
             spotsRow.appendChild(spotDiv)
   }
@@ -148,16 +155,17 @@ function getTicket(spot,vehicule){
     const tickets = getTickets()
     const date = new Date()
     const exitHour = `${date.getHours()}:${date.getMinutes().toString().padStart(2, "0")}`
-    
+    const ticketDate = `${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}`
+
     const vehiculeFound = vehicules.find(item => item.plateNumber == vehicule.plateNumber)
     const spotFound = spots.find(item => item.number == spot.number)
     vehiculeFound.exitTime = exitHour
   
     spotFound.occupied = false
     setSpots(spots)
-     
+    let newid = tickets.length + 1 
     const price = priceCalculation(vehicule.entryTime,exitHour)
-    const ticket = {slot:spot.number,plateNumber:vehiculeFound.plateNumber,type:vehicule.type,entryTime:vehicule.entryTime,exitTime:vehiculeFound.exitTime,price:price}
+    const ticket = {ticketId:newid,Date:ticketDate,slot:spot.number,plateNumber:vehiculeFound.plateNumber,type:vehicule.type,entryTime:vehicule.entryTime,exitTime:vehiculeFound.exitTime,price:price}
     tickets.push(ticket)
     setTickets(tickets)
     closeModal()
@@ -167,6 +175,7 @@ function getTicket(spot,vehicule){
     vehicules.splice(index, 1);
         }
     setVehicules(vehicules)
+    ticketsList()
   }
 
 function priceCalculation(entry,exit){
@@ -189,6 +198,27 @@ function priceCalculation(entry,exit){
     return price
 }
 
+function ticketsList(){
+  const tickets = getTickets()
+  const ticketsTable = document.querySelector("#ticketsTable tbody")
+  ticketsTable.innerHTML = ""
+  for(ticket of tickets){
+    const tr = document.createElement("tr")
+    tr.innerHTML = `<td class="px-6 py-4 font-medium text-gray-900">${ticket.ticketId}</td>
+                    <td class="px-6 py-4 font-medium text-gray-900">${ticket.Date}</td>
+                    <td class="px-6 py-4">
+                    <span class="rounded-md bg-blue-50 px-2 py-1 font-mono text-blue-700 border border-blue-100">
+                      ${ticket.plateNumber}
+                    </span>
+                    </td>
+                    <td class="px-6 py-4 font-medium text-gray-900">${ticket.slot}</td>
+                    <td class="px-6 py-4">${ticket.type}</td>
+                    <td class="px-6 py-4">${ticket.entryTime}</td>
+                    <td class="px-6 py-4 text-gray-400">${ticket.exitTime}</td>
+                    <td class="px-6 py-4 font-bold text-green-600">${ticket.price} MAD</td>`
+    ticketsTable.appendChild(tr)                
+  }
+}
 
 function showModal(currentSpot) {
     const modal = document.getElementById("infoModal");
@@ -242,6 +272,7 @@ function closeModal() {
 
 document.addEventListener("DOMContentLoaded", () => {
     createSpots()
+    ticketsList()
 })
 
 

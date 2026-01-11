@@ -42,7 +42,7 @@
         <main class="flex-1 p-4 md:w-[70%]">
             <h3 id="availablespots" class="mb-5">Available spots: 15</h3>
         <div id="spotsRow" class="flex flex-wrap justify-evenly gap-3">
-            <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex items-center justify-center cursor-pointer">
+            <div class="flex-none w-[calc(20%-12px)] h-20 bg-gray-400 border rounded-3xl flex flex-col items-center justify-center cursor-pointer">
             <span class="text-white text-xs font-bold">A01</span>
             </div>
             
@@ -51,27 +51,31 @@
   <table id="ticketsTable" class="w-full border-collapse bg-white text-left text-sm text-gray-500">
     <thead class="bg-gray-50">
       <tr>
-        <th scope="col" class="px-6 py-4 font-bold text-gray-900">Slot</th>
+        <th scope="col" class="px-6 py-4 font-bold text-gray-900">Ticket number</th>
+        <th scope="col" class="px-6 py-4 font-bold text-gray-900">Date</th>
         <th scope="col" class="px-6 py-4 font-bold text-gray-900">Plate Number</th>
+        <th scope="col" class="px-6 py-4 font-bold text-gray-900">Spot</th>
         <th scope="col" class="px-6 py-4 font-bold text-gray-900">Type</th>
         <th scope="col" class="px-6 py-4 font-bold text-gray-900">Entry Time</th>
         <th scope="col" class="px-6 py-4 font-bold text-gray-900">Exit Time</th>
-        <th scope="col" class="px-6 py-4 font-bold text-gray-900">Price (MAD)</th>
+        <th scope="col" class="px-6 py-4 font-bold text-gray-900">Price</th>
       </tr>
     </thead>
     <tbody class="divide-y divide-gray-100 border-t border-gray-100">
-      <tr class="hover:bg-gray-50 transition-colors">
-        <td class="px-6 py-4 font-medium text-gray-900">A01</td>
+      
+      <!-- <tr class="hover:bg-gray-50 transition-colors">
+        <td class="px-6 py-4 font-medium text-gray-900">22-01-2025</td>
         <td class="px-6 py-4">
           <span class="rounded-md bg-blue-50 px-2 py-1 font-mono text-blue-700 border border-blue-100">
             ABC-1234
           </span>
         </td>
+        <td class="px-6 py-4 font-medium text-gray-900">A01</td>
         <td class="px-6 py-4">Car</td>
         <td class="px-6 py-4">22/05 14:30</td>
         <td class="px-6 py-4 text-gray-400">---</td>
         <td class="px-6 py-4 font-bold text-green-600">10.00</td>
-      </tr>
+      </tr> -->
       </tbody>
   </table>
 </div>
@@ -88,7 +92,7 @@
     </div>
 
     <div class="space-y-3 text-sm">
-       <p class="flex justify-between"><strong>Date:</strong> <span id="modalDate"></span></p>
+      <p class="flex justify-between"><strong>Date:</strong> <span id="modalDate"></span></p>
       <p class="flex justify-between"><strong>Plate number:</strong> <span id="modalPlate"></span></p>
       <p class="flex justify-between"><strong>Type:</strong> <span id="modalType"></span></p>
       <p class="flex justify-between"><strong>Entry time:</strong> <span id="modalEntryTime" ></span></p>
